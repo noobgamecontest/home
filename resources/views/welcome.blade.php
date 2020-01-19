@@ -18,10 +18,13 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
     <!--Replace with your tailwind.css once created-->
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
+
+        body { font-family: 'Roboto Condensed', sans-serif; }
+
         .gradient {
             /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#16abd5+0,400583+50,bd0080+100 */
             background: #16abd5; /* Old browsers */
@@ -33,11 +36,12 @@
 
 
 
+
     </style>
 
 </head>
 
-<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+<body class="leading-normal tracking-normal text-white gradient">
 
 <!--Nav-->
 <nav id="header" class="w-full z-30 top-0 text-white">
@@ -45,7 +49,7 @@
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
 
         <div class="pl-4 flex items-center">
-            <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#">
+            <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="/">
                 NGC
             </a>
         </div>
@@ -96,29 +100,23 @@
     </div>
 </div>
 
-<section class="bg-pink-600 border-b py-8" id="next-event">
+<section class="bg-pink-600 text-center border-b py-8" id="next-event">
 
     <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white uppercase italic">Prochain événement</h1>
     <div class="w-full mb-4">
         <div class="h-1 mx-auto bg-white w-1/4 opacity-25 my-0 py-0"></div>
     </div>
 
-    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <!--Left Col-->
-        <div class="flex flex-col w-full md:w-2/5 items-start text-center md:text-left">
-            <p class="uppercase text-lg">Le 21/01 & 23/01<br/>Tournoi Bomberman</p>
-        </div>
-        <!--Right Col-->
-        <div class="w-full md:w-3/5 py-6 text-center text-2xl uppercase md:text-right">
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlEm07flRk8vi_KscCaE-zhiKN-Pa902sNOBbj_BlUdF-EuhbA4Wk3QN3kSzeX2sj5hDoJwHjANzO1/pubhtml" class="uppercase bg-transparent hover:bg-pink-900 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
+    <div class="container px-3 mx-auto items-center">
+        <p class="text-lg">
+            Le 21/01 & 23/01<br/>Tournoi Bomberman<br/><br/>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlEm07flRk8vi_KscCaE-zhiKN-Pa902sNOBbj_BlUdF-EuhbA4Wk3QN3kSzeX2sj5hDoJwHjANzO1/pubhtml" class="uppercase bg-transparent hover:bg-indigo-800 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
                 A suivre ici
-            </a>
-        </div>
-
+            </a>       </p>
     </div>
 </section>
 
-<section class="bg-white border-b py-8 text-gray-800" id="who">
+<section class="bg-white border-b  text-center py-8 text-gray-800" id="who">
 
     <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 uppercase italic">Qui sommes nous ?</h1>
     <div class="w-full mb-4">
@@ -138,9 +136,12 @@
         <div class="h-1 mx-auto bg-white w-1/4 opacity-25 my-0 py-0"></div>
     </div>
 
-    <h3 class="my-4 text-3xl leading-tight">Sur notre discord !</h3>
-
-    <a href="https://discord.gg/VkDE2SH" class="uppercase bg-transparent hover:bg-pink-900 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">ICI !</a>
+    <div class="container px-3 mx-auto items-center">
+        <p class="text-lg">
+            Sur notre Discord !<br/><br/>
+            <a href="https://discord.gg/VkDE2SH" class="uppercase bg-transparent hover:bg-indigo-800 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">ICI !</a>
+        </p>
+    </div>
 
 </section>
 
