@@ -59,10 +59,13 @@
         <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
             <ul class="list-reset lg:flex justify-end flex-1 items-center">
                 <li class="mr-3">
-                    <a class="inline-block text-white no-underline hover:text-pink-600 font-extrabold hover:text-underline py-2 px-4" href="#">Qui sommes nous ?</a>
+                    <a class="inline-block text-white no-underline hover:text-pink-600 font-extrabold hover:text-underline py-2 px-4" href="#next-event">Prochain événement</a>
                 </li>
                 <li class="mr-3">
-                    <a class="inline-block text-white no-underline hover:text-pink-600 font-extrabold hover:text-underline py-2 px-4" href="#">Contact</a>
+                    <a class="inline-block text-white no-underline hover:text-pink-600 font-extrabold hover:text-underline py-2 px-4" href="#who">Qui sommes nous ?</a>
+                </li>
+                <li class="mr-3">
+                    <a class="inline-block text-white no-underline hover:text-pink-600 font-extrabold hover:text-underline py-2 px-4" href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -93,13 +96,17 @@
     </div>
 </div>
 
-<section class="bg-pink-600 border-b py-8">
+<section class="bg-pink-600 border-b py-8" id="next-event">
+
+    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white uppercase italic">Prochain événement</h1>
+    <div class="w-full mb-4">
+        <div class="h-1 mx-auto bg-white w-1/4 opacity-25 my-0 py-0"></div>
+    </div>
 
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 items-start text-center md:text-left">
-            <p class="leading-normal text-2xl uppercase underline">Prochain événement</p>
-            <p class="leading-normal uppercase">21/01 & 23/01 : Tournoi Bomberman</p>
+            <p class="uppercase text-lg">Le 21/01 & 23/01<br/>Tournoi Bomberman</p>
         </div>
         <!--Right Col-->
         <div class="w-full md:w-3/5 py-6 text-center text-2xl uppercase md:text-right">
@@ -111,35 +118,29 @@
     </div>
 </section>
 
-<section class="bg-white border-b py-8">
+<section class="bg-white border-b py-8 text-gray-800" id="who">
 
-    <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <!--Left Col-->
-        <div class="flex flex-col w-full md:w-2/5 items-start text-center md:text-left">
-            <p class="leading-normal text-2xl uppercase underline">Prochain événement</p>
-            <p class="leading-normal uppercase">21/01 & 23/01 : Tournoi Bomberman</p>
-        </div>
-        <!--Right Col-->
-        <div class="w-full md:w-3/5 py-6 text-center text-2xl uppercase md:text-right">
-            <button class="uppercase bg-transparent hover:bg-pink-900 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-                A suivre ici
-            </button>
-        </div>
+    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 uppercase italic">Qui sommes nous ?</h1>
+    <div class="w-full mb-4">
+        <div class="h-1 mx-auto gradient w-1/4 my-0 py-0"></div>
+    </div>
 
+    <div class="container px-3 mx-auto items-center">
+        <p class="text-lg">Une bande de joyeux lurons</p>
     </div>
 </section>
 
 
-<section class="container mx-auto text-center py-6 mb-12">
+<section class="container mx-auto text-center py-6 mb-12" id="contact">
 
-    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">Call to Action</h1>
+    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white uppercase italic">Contact</h1>
     <div class="w-full mb-4">
-        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+        <div class="h-1 mx-auto bg-white w-1/4 opacity-25 my-0 py-0"></div>
     </div>
 
-    <h3 class="my-4 text-3xl leading-tight">Main Hero Message to sell yourself!</h3>
+    <h3 class="my-4 text-3xl leading-tight">Sur notre discord !</h3>
 
-    <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">Action!</button>
+    <a href="https://discord.gg/VkDE2SH" class="uppercase bg-transparent hover:bg-pink-900 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">ICI !</a>
 
 </section>
 
