@@ -75,14 +75,14 @@
         </div>
     </div>
 
-    <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+    <hr class="border-gray-100 opacity-25 my-0 py-0" />
 </nav>
 
 
 
 
 <!--Hero-->
-<div class="pt-12 border-b">
+<div class="pt-12">
 
     <div class="container px-3 pb-24 mx-auto items-center">
 
@@ -100,7 +100,7 @@
     </div>
 </div>
 
-<section class="bg-pink-600 text-center border-b py-8" id="next-event">
+<section class="bg-pink-600 text-center py-8" id="next-event">
 
     <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white uppercase italic">Prochain événement</h1>
     <div class="w-full mb-4">
@@ -116,7 +116,7 @@
     </div>
 </section>
 
-<section class="bg-white border-b  text-center py-8 text-gray-800" id="who">
+<section class="bg-white text-center py-8 text-gray-800" id="who">
 
     <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 uppercase italic">Qui sommes nous ?</h1>
     <div class="w-full mb-4">
