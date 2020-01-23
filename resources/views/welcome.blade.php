@@ -102,11 +102,9 @@
     </div>
 
     <div class="container px-3 mx-auto items-center">
-        <p class="text-lg">
-            Le 21/01 & 23/01<br/>Tournoi Bomberman<br/><br/>
-            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlEm07flRk8vi_KscCaE-zhiKN-Pa902sNOBbj_BlUdF-EuhbA4Wk3QN3kSzeX2sj5hDoJwHjANzO1/pubhtml" class="uppercase bg-transparent hover:bg-indigo-800 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">
-                A suivre ici
-            </a>       </p>
+        <p class="text-lg text-gray-300">
+            A venir.
+        </p>
     </div>
 </section>
 
