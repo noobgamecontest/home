@@ -131,7 +131,7 @@
     <div class="container px-3 mx-auto items-center">
         <p class="text-lg">
             Sur notre Discord !<br/><br/>
-            <a href="https://discord.gg/VkDE2SH" class="uppercase bg-transparent hover:bg-indigo-800 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">ICI !</a>
+            <a href="https://discord.gg/dK6ffMJ" class="uppercase bg-transparent hover:bg-indigo-800 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-transparent rounded">ICI !</a>
         </p>
     </div>
 
