@@ -1,0 +1,15 @@
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+  [entryPoints.https]
+    address = ":443"
+
+[providers.docker]
+  network = "web"
+  endpoint = "unix:///var/run/docker.sock"
+
+[certificatesResolvers.letsencrypt.acme]
+  email = "work@suppo.fr"
+  storage = "acme.json"
+  [certificatesResolvers.letsencrypt.acme.httpChallenge]
+    entryPoint = "http"

@@ -1,0 +1,55 @@
+version: '3'
+
+networks:
+  web:
+    external: true
+
+volumes:
+  mysql:
+    driver: local
+
+services:
+  reverse-proxy:
+    image: traefik:v2.4
+    restart: unless-stopped
+
+    networks:
+      - web
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./acme.json:/acme.json
+
+  app:
+    labels:
+      - "traefik.enable=false"
+
+  nginx:
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.home-http.rule=Host(`${APP_HOST}`)"
+      - "traefik.http.routers.home-http.entrypoints=http"
+      - "traefik.http.routers.home-http.middlewares=https-redirect@docker"
+
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
+
+      - "traefik.http.routers.home-https.entrypoints=https"
+      - "traefik.http.routers.home-https.rule=Host(`${APP_HOST}`)"
+      - "traefik.http.routers.home-https.tls=true"
+      - "traefik.http.routers.home-https.tls.certresolver=letsencrypt"
+
+  mysql:
+    volumes:
+      - 'mysql:/var/lib/mysql'
+
+    labels:
+      - "traefik.enable=false"
