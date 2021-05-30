@@ -55,8 +55,8 @@ pipeline {
                 sh '''
                     cp .env.example .env
                     sed -ri "s/^APP_KEY=.*/APP_KEY=${APP_KEY}/g" .env
-                    sed -ri "s/^APP_HOST=.*/APP_KEY=${APP_HOST}/g" .env
-                    sed -ri "s/^APP_ENV=.*/APP_KEY=production/g" .env
+                    sed -ri "s/^APP_HOST=.*/APP_HOST=${APP_HOST}/g" .env
+                    sed -ri "s/^APP_ENV=.*/APP_ENV=production/g" .env
 
                     apt-get update -y && apt-get install -y openssh-client rsync
                     eval $(ssh-agent -s)
