@@ -5,6 +5,9 @@ pipeline {
             args '-u root:root'
         }
     }
+    environment {
+        DISCORD_WEBHOOK = credentials('ngc-home.discord-webhook')
+    }
     stages {
         stage("build") {
             steps {
@@ -72,6 +75,11 @@ pipeline {
                         "$PWD"/ $REMOTE_USER@$REMOTE_HOST:$WORKDIR/
                 '''
             }
+        }
+    }
+    post {
+        always {
+            discordSend description: "Jenkins Pipeline Build", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: env.DISCORD_WEBHOOK
         }
     }
 }
