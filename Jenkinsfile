@@ -79,7 +79,7 @@ pipeline {
     }
     post {
         always {
-            discordSend webhookURL: env.DISCORD_WEBHOOK
+            discordSend link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: env.DISCORD_WEBHOOK
         }
     }
 }
