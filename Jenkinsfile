@@ -79,11 +79,20 @@ pipeline {
     }
     post {
         always {
-            def changeSet = getChangeSet();
+            notifyDiscord(env.DISCORD_WEBHOOK)
+            def changeSet = getChangeSet()
 
-            discordSend description: "**Build:** ${env.BUILD_NUMBER}\n**Status:** ${currentBuild.currentResult}\n\n**Changes:**${changeSet}\n", link: env.BUILD_URL, result: currentBuild.currentResult, title: "${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}", webhookURL: env.DISCORD_WEBHOOK
+            discordSend description: , link: env.BUILD_URL, result: currentBuild.currentResult, title: "${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}", webhookURL: env.DISCORD_WEBHOOK
         }
     }
+}
+
+def notifyDiscord(String webhook) {
+    def changeSet = getChangeSet()
+    def description = "**Build:** ${env.BUILD_NUMBER}\n**Status:** ${currentBuild.currentResult}\n\n**Changes:**\n${changeSet}"
+    def title = "${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}"
+
+    discordSend title: title, description: description, link: env.BUILD_URL, result: currentBuild.currentResult, webhookURL: webhook
 }
 
 @NonCPS
@@ -91,7 +100,7 @@ pipeline {
 def getChangeSet() {
   return currentBuild.changeSets.collect { cs ->
     cs.collect { entry ->
-        "+ `${entry.getCommitId()}` _${entry.msg} - ${entry.author.fullName}_"
+        "+ `${entry.getCommitId()}` _${entry.msg} - ${entry.author.fullName}_\n"
     }.join("\n")
   }.join("\n")
 }
