@@ -97,7 +97,7 @@ def notifyDiscord(String webhook) {
 def getChangeSet() {
   return currentBuild.changeSets.collect { cs ->
     cs.collect { entry ->
-        "+ `${entry.getCommitId()}` _${entry.msg} - ${entry.author.fullName}_\n"
+        "+ `${entry.commitId}` _${entry.msg} - ${entry.author.fullName}_\n"
     }.join("\n")
   }.join("\n")
 }
