@@ -80,9 +80,6 @@ pipeline {
     post {
         always {
             notifyDiscord(env.DISCORD_WEBHOOK)
-            def changeSet = getChangeSet()
-
-            discordSend description: , link: env.BUILD_URL, result: currentBuild.currentResult, title: "${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}", webhookURL: env.DISCORD_WEBHOOK
         }
     }
 }
