@@ -79,7 +79,19 @@ pipeline {
     }
     post {
         always {
-            discordSend description: "**Build:** ${env.BUILD_NUMBER}\n**Status:** ${currentBuild.currentResult}\n\n**Changes:**\n", link: env.BUILD_URL, result: currentBuild.currentResult, title: "${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}", webhookURL: env.DISCORD_WEBHOOK
+            def changeSet = getChangeSet();
+
+            discordSend description: "**Build:** ${env.BUILD_NUMBER}\n**Status:** ${currentBuild.currentResult}\n\n**Changes:**${changeSet}\n", link: env.BUILD_URL, result: currentBuild.currentResult, title: "${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}", webhookURL: env.DISCORD_WEBHOOK
         }
     }
+}
+
+@NonCPS
+
+def getChangeSet() {
+  return currentBuild.changeSets.collect { cs ->
+    cs.collect { entry ->
+        "+ `${entry.getCommitId()}` _${entry.msg} - ${entry.author.fullName}_"
+    }.join("\n")
+  }.join("\n")
 }
