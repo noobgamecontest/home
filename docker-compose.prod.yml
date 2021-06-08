@@ -9,22 +9,6 @@ volumes:
     driver: local
 
 services:
-  reverse-proxy:
-    image: traefik:v2.4
-    restart: unless-stopped
-
-    networks:
-      - web
-
-    ports:
-      - "80:80"
-      - "443:443"
-
-    volumes:
-      - ./traefik.toml:/etc/traefik/traefik.toml
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./acme.json:/acme.json
-
   app:
     labels:
       - "traefik.enable=false"
