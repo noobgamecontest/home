@@ -49,7 +49,7 @@ pipeline {
                 REMOTE_HOST = credentials('ngc-home.remote-host')
                 REMOTE_USER = credentials('ngc-home.remote-user')
                 SSH_PRIVATE_KEY = credentials('global.ssh-private-key')
-                WORKDIR = '/srv/app'
+                WORKDIR = '/srv/home'
 
                 APP_KEY = credentials('ngc-home.app-key')
                 APP_HOST = credentials('ngc-home.app-host')
