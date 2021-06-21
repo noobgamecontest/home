@@ -1,0 +1,59 @@
+image: php:8.0
+
+cache:
+  paths:
+    - vendor/
+    - node_modules/
+    - public/css
+    - public/images
+    - public/js
+    - public/mix-manifest.json
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - >
+    apt-get update -y && apt-get install -y git curl libpng-dev libonig-dev libxml2-dev zip unzip gnupg
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php composer-setup.php
+
+    composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+
+    curl -sL https://deb.nodesource.com/setup_15.x | bash - \
+      && apt-get install -y nodejs \
+      && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+      && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
+      && apt-get update \
+      && apt-get install -y yarn
+
+    yarn install
+    yarn run prod
+
+test:
+  stage: test
+  script:
+    - php vendor/bin/phpunit
+
+prod:
+  stage: deploy
+  script:
+    - apt-get update -y && apt-get install -y openssh-client rsync
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - cp $ENV_FILE .env
+    - rsync -az --delete --delete-excluded --chmod=D755,F644 --exclude "node_modules" --exclude ".git*" "$PWD"/ $REMOTE_USER@$REMOTE_HOST:$WORKDIR/
+    - ssh $REMOTE_USER@$REMOTE_HOST "chmod 777 $WORKDIR/bootstrap/cache"
+    - ssh $REMOTE_USER@$REMOTE_HOST "chmod 777 $WORKDIR/storage/logs"
+    - ssh $REMOTE_USER@$REMOTE_HOST "chmod 777 $WORKDIR/storage/framework/cache"
+    - ssh $REMOTE_USER@$REMOTE_HOST "chmod 777 $WORKDIR/storage/framework/sessions"
+    - ssh $REMOTE_USER@$REMOTE_HOST "chmod 777 $WORKDIR/storage/framework/views"
+  only:
+    - master
