@@ -21,7 +21,7 @@ build:
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
 
-    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - php composer.phar install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
 
     - curl -sL https://deb.nodesource.com/setup_15.x | bash - \
       && apt-get install -y nodejs \
