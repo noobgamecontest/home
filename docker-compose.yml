@@ -18,8 +18,7 @@ services:
       - '.:/var/www'
 
   nginx:
-    build:
-      context: ./docker/nginx
+    image: williamsuppo/nginx:1.0
     networks:
       - app
     volumes:
