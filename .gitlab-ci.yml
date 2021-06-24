@@ -1,4 +1,4 @@
-image: php:8.0
+image: williamsuppo/php:dev
 
 cache:
   paths:
@@ -17,19 +17,7 @@ stages:
 build:
   stage: build
   script:
-    - apt-get update -y && apt-get install -y git curl libpng-dev libonig-dev libxml2-dev zip unzip gnupg
-    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-    - php composer-setup.php
-
-    - php composer.phar install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
-
-    - curl -sL https://deb.nodesource.com/setup_15.x | bash -
-    - apt-get install -y nodejs
-    - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-    - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
-    - apt-get update
-    - apt-get install -y yarn
-
+    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
     - yarn install
     - yarn run prod
 
